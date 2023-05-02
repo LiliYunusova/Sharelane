@@ -31,8 +31,6 @@ public class SharelaneRegistrationTest {
         driver.findElement(By.name("zip_code")).sendKeys("1234");
         driver.findElement(By.cssSelector("[value = 'Continue']")).click();
         String actualResult = driver.findElement(By.xpath("//body/center/table/tbody/tr[4]/td/span")).getText();
-        //поиск по css селектору
-        //String actualResult1 = driver.findElement(By.cssSelector("[class = 'error_message']")).getText();
         String expectedResult = "Oops, error on page. ZIP code should have 5 digits";
 
         Assert.assertEquals(actualResult, expectedResult);
@@ -115,6 +113,7 @@ public class SharelaneRegistrationTest {
         String expectedResult = "Oops, error on page. Some of your fields have invalid data or email was previously used";
         Assert.assertEquals(actualResult, expectedResult);
     }
+
     @Test
     public void signUpWithInvalidEmailDataTest(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
